@@ -1,11 +1,11 @@
 /* dprt_jni_general.c
 ** Common JNI routines used by dprt instrument libraries.
-** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.1 2004-03-31 16:42:49 cjm Exp $
+** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.2 2004-04-14 17:11:02 cjm Exp $
 */
 /**
  * dprt_jni_general.c contains common JNI (Java Native Interface) routines over all dprt C libraries.
  * @author Chris Mottram, LJMU
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,7 +81,7 @@ char DpRt_JNI_Error_String[DPRT_ERROR_STRING_LENGTH] = "";
 /**
  * Revision Control System identifier.
  */
-static char rcsid[] = "$Id: dprt_jni_general.c,v 1.1 2004-03-31 16:42:49 cjm Exp $";
+static char rcsid[] = "$Id: dprt_jni_general.c,v 1.2 2004-04-14 17:11:02 cjm Exp $";
 
 /**
  * The single instance of struct DpRt_Struct, that holds local data to this source file.
@@ -350,19 +350,19 @@ int DpRt_JNI_Get_Property(char *keyword,char **value_string)
 	DpRt_JNI_Error_String[0] = '\0';
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 5;
+		DpRt_JNI_Error_Number = 1;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property failed: Keyword was NULL.\n");
 		return FALSE;
 	}
 	if(value_string == NULL)
 	{
-		DpRt_JNI_Error_Number = 6;
+		DpRt_JNI_Error_Number = 2;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property failed: Value String Pointer was NULL.\n");
 		return FALSE;
 	}
 	if(DpRt_Data.DpRt_Get_Property_Function_Pointer == NULL)
 	{
-		DpRt_JNI_Error_Number = 7;
+		DpRt_JNI_Error_Number = 3;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property failed: Function Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -386,19 +386,19 @@ int DpRt_JNI_Get_Property_Integer(char *keyword,int *value)
 	DpRt_JNI_Error_String[0] = '\0';
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 8;
+		DpRt_JNI_Error_Number = 4;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Integer failed: Keyword was NULL.\n");
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 9;
+		DpRt_JNI_Error_Number = 5;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Integer failed: Value Pointer was NULL.\n");
 		return FALSE;
 	}
 	if(DpRt_Data.DpRt_Get_Property_Integer_Function_Pointer == NULL)
 	{
-		DpRt_JNI_Error_Number = 10;
+		DpRt_JNI_Error_Number = 6;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Integer failed: Function Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -422,19 +422,19 @@ int DpRt_JNI_Get_Property_Double(char *keyword,double *value)
 	DpRt_JNI_Error_String[0] = '\0';
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 11;
+		DpRt_JNI_Error_Number = 7;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Double failed: Keyword was NULL.\n");
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 12;
+		DpRt_JNI_Error_Number = 8;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Double failed: Value Pointer was NULL.\n");
 		return FALSE;
 	}
 	if(DpRt_Data.DpRt_Get_Property_Double_Function_Pointer == NULL)
 	{
-		DpRt_JNI_Error_Number = 13;
+		DpRt_JNI_Error_Number = 9;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Double failed: Function Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -458,19 +458,19 @@ int DpRt_JNI_Get_Property_Boolean(char *keyword,int *value)
 	DpRt_JNI_Error_String[0] = '\0';
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 14;
+		DpRt_JNI_Error_Number = 10;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Boolean failed: Keyword was NULL.\n");
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 15;
+		DpRt_JNI_Error_Number = 11;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Boolean failed: Value Pointer was NULL.\n");
 		return FALSE;
 	}
 	if(DpRt_Data.DpRt_Get_Property_Boolean_Function_Pointer == NULL)
 	{
-		DpRt_JNI_Error_Number = 16;
+		DpRt_JNI_Error_Number = 12;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Boolean failed: Function Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -497,21 +497,21 @@ int DpRt_JNI_DpRtStatus_Get_Property(char *keyword,char **value_string)
 
 	if(DpRt_Status == NULL)
 	{
-		DpRt_JNI_Error_Number = 1;
+		DpRt_JNI_Error_Number = 13;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:DpRt_Status was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(DpRt_Status_Get_Property_Method_Id == NULL)
 	{
-		DpRt_JNI_Error_Number = 2;
+		DpRt_JNI_Error_Number = 14;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:Method ID was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(Java_VM == NULL)
 	{
-		DpRt_JNI_Error_Number = 3;
+		DpRt_JNI_Error_Number = 15;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:Java_VM was NULL (%s).\n",
 			keyword);
 		return FALSE;
@@ -520,19 +520,19 @@ int DpRt_JNI_DpRtStatus_Get_Property(char *keyword,char **value_string)
 	(*Java_VM)->AttachCurrentThread(Java_VM,(void**)&env,NULL);
 	if(env == NULL)
 	{
-		DpRt_JNI_Error_Number = 4;
+		DpRt_JNI_Error_Number = 16;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:env was NULL (%s).\n",keyword);
 		return FALSE;
 	}
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 5;
+		DpRt_JNI_Error_Number = 17;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:string (%s) was NULL.\n",keyword);
 		return FALSE;
 	}
 	if(value_string == NULL)
 	{
-		DpRt_JNI_Error_Number = 6;
+		DpRt_JNI_Error_Number = 18;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:value_string Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -551,7 +551,7 @@ int DpRt_JNI_DpRtStatus_Get_Property(char *keyword,char **value_string)
 		(*value_string) = (char *)malloc((strlen(c_value_string)+1)*sizeof(char));
 		if((*value_string) == NULL)
 		{
-			DpRt_JNI_Error_Number = 7;
+			DpRt_JNI_Error_Number = 19;
 			sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property:"
 				"Memory allocation error(%s,%d).\n",
 				c_value_string,strlen(c_value_string));
@@ -581,7 +581,7 @@ int DpRt_JNI_DpRtStatus_Get_Property_Integer(char *keyword,int *value)
 
 	if(DpRt_Status == NULL)
 	{
-		DpRt_JNI_Error_Number = 8;
+		DpRt_JNI_Error_Number = 20;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:"
 			"DpRt_Status was NULL (%s).\n",
 			keyword);
@@ -589,14 +589,14 @@ int DpRt_JNI_DpRtStatus_Get_Property_Integer(char *keyword,int *value)
 	}
 	if(DpRt_Status_Get_Property_Integer_Method_Id == NULL)
 	{
-		DpRt_JNI_Error_Number = 9;
+		DpRt_JNI_Error_Number = 21;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:Method ID was NULL(%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(Java_VM == NULL)
 	{
-		DpRt_JNI_Error_Number = 10;
+		DpRt_JNI_Error_Number = 22;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:Java_VM was NULL(%s).\n",
 			keyword);
 		return FALSE;
@@ -605,21 +605,21 @@ int DpRt_JNI_DpRtStatus_Get_Property_Integer(char *keyword,int *value)
 	(*Java_VM)->AttachCurrentThread(Java_VM,(void**)&env,NULL);
 	if(env == NULL)
 	{
-		DpRt_JNI_Error_Number = 11;
+		DpRt_JNI_Error_Number = 23;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:env was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 12;
+		DpRt_JNI_Error_Number = 24;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:string (%s) was NULL.\n",
 			keyword);
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 13;
+		DpRt_JNI_Error_Number = 25;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Integer:value Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -645,21 +645,21 @@ int DpRt_JNI_DpRtStatus_Get_Property_Double(char *keyword,double *value)
 
 	if(DpRt_Status == NULL)
 	{
-		DpRt_JNI_Error_Number = 14;
+		DpRt_JNI_Error_Number = 26;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:DpRt_Status was NULL(%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(DpRt_Status_Get_Property_Double_Method_Id == NULL)
 	{
-		DpRt_JNI_Error_Number = 15;
+		DpRt_JNI_Error_Number = 27;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:Method ID was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(Java_VM == NULL)
 	{
-		DpRt_JNI_Error_Number = 16;
+		DpRt_JNI_Error_Number = 28;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:Java_VM was NULL(%s).\n",
 			keyword);
 		return FALSE;
@@ -668,21 +668,21 @@ int DpRt_JNI_DpRtStatus_Get_Property_Double(char *keyword,double *value)
 	(*Java_VM)->AttachCurrentThread(Java_VM,(void**)&env,NULL);
 	if(env == NULL)
 	{
-		DpRt_JNI_Error_Number = 17;
+		DpRt_JNI_Error_Number = 29;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:env was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 18;
+		DpRt_JNI_Error_Number = 30;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:string (%s) was NULL.\n",
 			keyword);
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 19;
+		DpRt_JNI_Error_Number = 31;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Double:value Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -709,21 +709,21 @@ int DpRt_JNI_DpRtStatus_Get_Property_Boolean(char *keyword,int *value)
 
 	if(DpRt_Status == NULL)
 	{
-		DpRt_JNI_Error_Number = 20;
+		DpRt_JNI_Error_Number = 32;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:"
 			"DpRt_Status was NULL(%s).\n",keyword);
 		return FALSE;
 	}
 	if(DpRt_Status_Get_Property_Boolean_Method_Id == NULL)
 	{
-		DpRt_JNI_Error_Number = 21;
+		DpRt_JNI_Error_Number = 33;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:Method ID was NULL(%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(Java_VM == NULL)
 	{
-		DpRt_JNI_Error_Number = 22;
+		DpRt_JNI_Error_Number = 34;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:Java_VM was NULL(%s).\n",
 			keyword);
 		return FALSE;
@@ -732,21 +732,21 @@ int DpRt_JNI_DpRtStatus_Get_Property_Boolean(char *keyword,int *value)
 	(*Java_VM)->AttachCurrentThread(Java_VM,(void**)&env,NULL);
 	if(env == NULL)
 	{
-		DpRt_JNI_Error_Number = 23;
+		DpRt_JNI_Error_Number = 35;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:env was NULL (%s).\n",
 			keyword);
 		return FALSE;
 	}
 	if(keyword == NULL)
 	{
-		DpRt_JNI_Error_Number = 24;
+		DpRt_JNI_Error_Number = 36;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:string (%s) was NULL.\n",
 			keyword);
 		return FALSE;
 	}
 	if(value == NULL)
 	{
-		DpRt_JNI_Error_Number = 25;
+		DpRt_JNI_Error_Number = 37;
 		sprintf(DpRt_JNI_Error_String,"DpRt_JNI_DpRtStatus_Get_Property_Boolean:value Pointer was NULL.\n");
 		return FALSE;
 	}
@@ -1175,7 +1175,7 @@ static int DpRt_JNI_Get_Property_From_C_File(char *keyword,char **value_string)
 	fp = fopen(PROPERTY_FILE_NAME,"r");
 	if(fp == NULL)
 	{
-		DpRt_JNI_Error_Number = 17;
+		DpRt_JNI_Error_Number = 38;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_From_C_File failed: File open (%s) failed.\n",
 			PROPERTY_FILE_NAME);
 		return FALSE;
@@ -1193,7 +1193,7 @@ static int DpRt_JNI_Get_Property_From_C_File(char *keyword,char **value_string)
 				if((*value_string) == NULL)
 				{
 					fclose(fp);
-					DpRt_JNI_Error_Number = 18;
+					DpRt_JNI_Error_Number = 39;
 					sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_From_C_File failed: "
 						"Memory Allocation error(%s,%s,%s,%d) failed.\n",
 						PROPERTY_FILE_NAME,keyword,ch,(strlen(ch)+1));
@@ -1210,7 +1210,7 @@ static int DpRt_JNI_Get_Property_From_C_File(char *keyword,char **value_string)
 	fclose(fp);
 	if(done == FALSE)
 	{
-		DpRt_JNI_Error_Number = 19;
+		DpRt_JNI_Error_Number = 40;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_From_C_File failed:Failed to find keyword (%s,%s).\n",
 			PROPERTY_FILE_NAME,keyword);
 	}
@@ -1236,7 +1236,7 @@ static int DpRt_JNI_Get_Property_Integer_From_C_File(char *keyword,int *value)
 	retval = sscanf(value_string,"%i",value);
 	if(retval != 1)
 	{
-		DpRt_JNI_Error_Number = 20;
+		DpRt_JNI_Error_Number = 41;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Integer_From_C_File failed:"
 			"Failed to convert (%s,%s,%s).\n",PROPERTY_FILE_NAME,keyword,value_string);
 		if(value_string != NULL)
@@ -1267,7 +1267,7 @@ static int DpRt_JNI_Get_Property_Double_From_C_File(char *keyword,double *value)
 	retval = sscanf(value_string,"%lf",value);
 	if(retval != 1)
 	{
-		DpRt_JNI_Error_Number = 21;
+		DpRt_JNI_Error_Number = 42;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Double_From_C_File failed:"
 			"Failed to convert (%s,%s,%s).\n",PROPERTY_FILE_NAME,keyword,value_string);
 		if(value_string != NULL)
@@ -1301,7 +1301,7 @@ static int DpRt_JNI_Get_Property_Boolean_From_C_File(char *keyword,int *value)
 		(*value) = FALSE;
 	else
 	{
-		DpRt_JNI_Error_Number = 22;
+		DpRt_JNI_Error_Number = 43;
 		sprintf(DpRt_JNI_Error_String,"DpRt_Get_Property_Boolean_From_C_File failed:"
 			"Failed to convert (%s,%s,%s).\n",PROPERTY_FILE_NAME,keyword,value_string);
 		if(value_string != NULL)
@@ -1315,4 +1315,7 @@ static int DpRt_JNI_Get_Property_Boolean_From_C_File(char *keyword,int *value)
 
 /*
 ** $Log: not supported by cvs2svn $
+** Revision 1.1  2004/03/31 16:42:49  cjm
+** Initial revision
+**
 */
