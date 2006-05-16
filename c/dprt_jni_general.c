@@ -1,11 +1,30 @@
+/*   
+    Copyright 2006, Astrophysics Research Institute, Liverpool John Moores University.
+
+    This file is part of DpRt.
+
+    DpRt is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    DpRt is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with DpRt; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 /* dprt_jni_general.c
 ** Common JNI routines used by dprt instrument libraries.
-** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.2 2004-04-14 17:11:02 cjm Exp $
+** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.3 2006-05-16 18:47:09 cjm Exp $
 */
 /**
  * dprt_jni_general.c contains common JNI (Java Native Interface) routines over all dprt C libraries.
  * @author Chris Mottram, LJMU
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,7 +100,7 @@ char DpRt_JNI_Error_String[DPRT_ERROR_STRING_LENGTH] = "";
 /**
  * Revision Control System identifier.
  */
-static char rcsid[] = "$Id: dprt_jni_general.c,v 1.2 2004-04-14 17:11:02 cjm Exp $";
+static char rcsid[] = "$Id: dprt_jni_general.c,v 1.3 2006-05-16 18:47:09 cjm Exp $";
 
 /**
  * The single instance of struct DpRt_Struct, that holds local data to this source file.
@@ -1315,6 +1334,9 @@ static int DpRt_JNI_Get_Property_Boolean_From_C_File(char *keyword,int *value)
 
 /*
 ** $Log: not supported by cvs2svn $
+** Revision 1.2  2004/04/14 17:11:02  cjm
+** Sorted out duplicate error numbers.
+**
 ** Revision 1.1  2004/03/31 16:42:49  cjm
 ** Initial revision
 **
