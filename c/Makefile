@@ -1,4 +1,4 @@
-# $Header: /home/cjm/cvs/libdprt-jni_general/c/Makefile,v 1.1 2004-03-31 16:43:53 cjm Exp $
+# $Header: /home/cjm/cvs/libdprt-jni_general/c/Makefile,v 1.2 2008-07-16 15:11:42 cjm Exp $
 
 include	../../../Makefile.common
 include	../../Makefile.common
@@ -46,10 +46,10 @@ checkin:
 	-(cd $(INCDIR); $(CI) $(CI_OPTIONS) $(HEADERS);)
 
 staticdepend:
-	makedepend -p$(BINDIR)/ -- $(CFLAGS) -- $(SRCS)
+	makedepend $(MAKEDEPENDFLAGS) -p$(BINDIR)/ -- $(CFLAGS) -- $(SRCS)
 
 depend:
-	makedepend -p$(BINDIR)/ -- $(CFLAGS) -- $(SRCS)
+	makedepend $(MAKEDEPENDFLAGS) -p$(BINDIR)/ -- $(CFLAGS) -- $(SRCS)
 
 lint:
 	$(LINT)	$(LINTFLAGS) $(SRCS)
@@ -67,6 +67,9 @@ backup: tidy
 
 #
 # $Log: not supported by cvs2svn $
+# Revision 1.1  2004/03/31 16:43:53  cjm
+# Initial revision
+#
 #
 
 # DO NOT DELETE
@@ -75,7 +78,7 @@ backup: tidy
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/features.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/sys/cdefs.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/gnu/stubs.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2/include/stddef.h
+/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stddef.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/types.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/wordsize.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/typesizes.h
@@ -84,7 +87,7 @@ backup: tidy
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/wchar.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/wchar.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/gconv.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2/include/stdarg.h
+/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stdarg.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/stdio_lim.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/sys_errlist.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/stdlib.h
@@ -93,6 +96,6 @@ backup: tidy
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/huge_val.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/mathdef.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/mathcalls.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.1_01/include/jni.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.1_01/include/linux/jni_md.h
+/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.2_06/include/jni.h
+/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.2_06/include/linux/jni_md.h
 /home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /home/dev/src/libdprt/jni_general/include/dprt_jni_general.h
