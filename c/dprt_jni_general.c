@@ -19,12 +19,12 @@
 */
 /* dprt_jni_general.c
 ** Common JNI routines used by dprt instrument libraries.
-** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.3 2006-05-16 18:47:09 cjm Exp $
+** $Header: /home/cjm/cvs/libdprt-jni_general/c/dprt_jni_general.c,v 1.4 2011-04-19 13:54:43 cjm Exp $
 */
 /**
  * dprt_jni_general.c contains common JNI (Java Native Interface) routines over all dprt C libraries.
  * @author Chris Mottram, LJMU
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -100,7 +100,7 @@ char DpRt_JNI_Error_String[DPRT_ERROR_STRING_LENGTH] = "";
 /**
  * Revision Control System identifier.
  */
-static char rcsid[] = "$Id: dprt_jni_general.c,v 1.3 2006-05-16 18:47:09 cjm Exp $";
+static char rcsid[] = "$Id: dprt_jni_general.c,v 1.4 2011-04-19 13:54:43 cjm Exp $";
 
 /**
  * The single instance of struct DpRt_Struct, that holds local data to this source file.
@@ -1105,13 +1105,18 @@ void DpRt_JNI_Throw_Exception_String(JNIEnv *env,char *function_name,int error_n
  * If the Logger instance is NULL, or the Log_Method_Id is NULL the call is not made.
  * Otherwise, A java.lang.String instance is constructed from the string parameter,
  * and the JNI CallVoidMEthod routine called to call log().
- * @param level The log level of the message.
+ * @param sub_system The sub system. Can be NULL.
+ * @param source_file The source filename. Can be NULL.
+ * @param function The function calling the log. Can be NULL.
+ * @param level The log level of the message.(TERSE/high level or VERBOSE/low level), 
+ *         a valid member of LOG_VERBOSITY.
+ * @param category What sort of information is the message. Designed to be used as a filter. Can be NULL.
  * @param string The message to log.
  * @see #Java_VM
  * @see #Logger
  * @see #Log_Method_Id
  */
-void DpRt_JNI_Log_Handler(int level,char *string)
+void DpRt_JNI_Log_Handler(char* sub_system,char* source_filename,char* function,int level,char* category,char *string)
 {
 	JNIEnv *env = NULL;
 	jstring java_string = NULL;
@@ -1334,6 +1339,9 @@ static int DpRt_JNI_Get_Property_Boolean_From_C_File(char *keyword,int *value)
 
 /*
 ** $Log: not supported by cvs2svn $
+** Revision 1.3  2006/05/16 18:47:09  cjm
+** gnuify: Added GNU General Public License.
+**
 ** Revision 1.2  2004/04/14 17:11:02  cjm
 ** Sorted out duplicate error numbers.
 **
