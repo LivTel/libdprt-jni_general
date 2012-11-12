@@ -18,7 +18,7 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 /* dprt_jni_general.h
-** $Header: /home/cjm/cvs/libdprt-jni_general/include/dprt_jni_general.h,v 1.2 2006-05-16 18:47:17 cjm Exp $
+** $Header: /home/cjm/cvs/libdprt-jni_general/include/dprt_jni_general.h,v 1.3 2012-11-12 16:23:00 cjm Exp $
 */
 #ifndef DPRT_JNI_GENERAL_H
 #define DPRT_JNI_GENERAL_H
@@ -90,7 +90,8 @@ extern int DpRt_JNI_Set_Expose_Reduce_Done(JNIEnv *env,jclass cls,jobject done,d
 extern void DpRt_JNI_Throw_Exception(JNIEnv *env,char *function_name);
 extern void DpRt_JNI_Throw_Exception_String(JNIEnv *env,char *function_name,int error_number,char *error_string);
 /* logging back to Java layer */
-extern void DpRt_JNI_Log_Handler(int level,char *string);
+extern void DpRt_JNI_Log_Handler(char* sub_system,char* source_filename,char* function,int level,char* category,
+				 char *string);
 /* error retrieval */
 extern int DpRt_JNI_Get_Error_Number(void);
 extern void DpRt_JNI_Get_Error_String(char *error_string);
