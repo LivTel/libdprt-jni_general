@@ -1,4 +1,4 @@
-# $Header: /home/cjm/cvs/libdprt-jni_general/c/Makefile,v 1.2 2008-07-16 15:11:42 cjm Exp $
+# $Header: /home/cjm/cvs/libdprt-jni_general/c/Makefile,v 1.3 2025-02-05 09:51:09 cjm Exp $
 
 include	../../../Makefile.common
 include	../../Makefile.common
@@ -8,7 +8,7 @@ LIBNAME		= $(LIBDPRT_HOME)_$(JNI_HOME)
 INCDIR 		= $(LIBDPRT_JNI_SRC_HOME)/include
 DOCSDIR 	= $(LIBDPRT_JNI_DOC_HOME)/cdocs
 BINDIR		= $(LIBDPRT_JNI_BIN_HOME)/c/$(HOSTTYPE)
-CFLAGS 		= -g $(CCHECKFLAG) -I$(INCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR) -L$(LT_LIB_HOME)
+CFLAGS 		= -g $(CCHECKFLAG) $(SHARED_LIB_CFLAGS) -I$(INCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR) -L$(LT_LIB_HOME)
 LINTFLAGS 	= -I$(INCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR)
 DOCFLAGS 	= -static
 SRCS 		= dprt_jni_general.c
@@ -67,35 +67,12 @@ backup: tidy
 
 #
 # $Log: not supported by cvs2svn $
+# Revision 1.2  2008/07/16 15:11:42  cjm
+# Added MAKEDEPENDFLAGS flags.
+#
 # Revision 1.1  2004/03/31 16:43:53  cjm
 # Initial revision
 #
 #
 
 # DO NOT DELETE
-
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/stdio.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/features.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/sys/cdefs.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/gnu/stubs.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stddef.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/types.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/wordsize.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/typesizes.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/libio.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/_G_config.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/wchar.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/wchar.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/gconv.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stdarg.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/stdio_lim.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/sys_errlist.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/stdlib.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/string.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/math.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/huge_val.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/mathdef.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/include/bits/mathcalls.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.2_06/include/jni.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /usr/java/j2sdk1.4.2_06/include/linux/jni_md.h
-/home/dev/bin/libdprt/jni_general/c/i386-linux/dprt_jni_general.o: /home/dev/src/libdprt/jni_general/include/dprt_jni_general.h
